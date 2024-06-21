@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -10,13 +11,20 @@ public class E1 {
   public static void main (String [] args){
 
     try {
-      System.out.println("HelloWorld");
-      logger.info("programa realizado con éxito");
+      PrintWriter writer = new PrintWriter(System.out, true);
+      writer.println("HelloWorld");
+      logger.info("Ejercicio E1 realizado con éxito");
       
-    } catch (Exception e) {
-      // TODO: handle exception
+    } 
+    catch(NullPointerException nullPointerException){
+      System.err.println("El login no esta correctamente iniciado");
+      logger.severe("Ha habido un error con el inicio del login");
+    }
+    
+    catch (Exception e) {
+
       e.printStackTrace();
-      logger.severe("El programa ha sufrido un error");
+      logger.severe("Ha habido un error con la ejecución del ejercicio E1");
     }
   
 
